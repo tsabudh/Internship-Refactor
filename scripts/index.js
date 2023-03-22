@@ -214,25 +214,25 @@ for (let i = 0; i < courseItems.length; i++) {
 
 function repoRoute(courseName, assignmentNumber) {
   if (courseName == "js" && assignmentNumber == "0") {
-    return `https://github.com/tsabudh/internship`;
+    return `https://github.com/tsabudh/Internship-Refactor`;
   } else if (courseName == "js" && assignmentNumber == "06") {
-    return `https://github.com/tsabudh/internship/tree/master/js-course/js-final`;
+    return `https://github.com/tsabudh/Internship-Refactor/tree/master/js-course/js-final`;
   } else if (courseName == "css" && assignmentNumber == "18") {
-    return `https://github.com/tsabudh/internship/tree/master/css-course/css-assignment-final`;
+    return `https://github.com/tsabudh/Internship-Refactor/tree/master/css-course/css-assignment-final`;
   } else if (
     courseName == "react" ||
     courseName == "php" ||
     courseName == "database"
   ) {
-    return `https://github.com/tsabudh/internship/tree/master/${courseName}-course/session-${
+    return `https://github.com/tsabudh/Internship-Refactor/tree/master/${courseName}-course/session-${
       assignmentNumber + 1
     }/`;
   } else if (courseName == "final" && assignmentNumber == 0) {
-    return `https://github.com/tsabudh/internship/tree/master/planning-poker/`;
+    return `https://github.com/tsabudh/Internship-Refactor/tree/master/planning-poker/`;
   } else if (courseName == "final" && assignmentNumber == 1) {
-    return `https://github.com/tsabudh/internship/tree/master/planning-poker-server/`;
+    return `https://github.com/tsabudh/Internship-Refactor/tree/master/planning-poker-server/`;
   } else {
-    return `https://github.com/tsabudh/internship/tree/master/${courseName}-course/${courseName}-assignment-${makeIndexOf(
+    return `https://github.com/tsabudh/Internship-Refactor/tree/master/${courseName}-course/${courseName}-assignment-${makeIndexOf(
       assignmentNumber
     )}`;
   }
@@ -240,23 +240,23 @@ function repoRoute(courseName, assignmentNumber) {
 //*ASSIGNMENT NUMBER STARTS FROM ZERO AND IS LESS THAN SHOWN
 function demoRoute(courseName, assignmentNumber) {
   if (courseName == "css" && assignmentNumber == "18") {
-    return `https://tsabudh.github.io/internship/css-course/css-assignment-final/dist/`;
+    return `https://tsabudh.github.io/Internship-Refactor/css-course/css-assignment-final/dist/`;
   } else if (courseName == "js" && assignmentNumber == "06") {
-    return `https://tsabudh.github.io/internship/js-course/js-final/`;
+    return `https://tsabudh.github.io/Internship-Refactor/js-course/js-final/`;
   } else if (
     courseName == "react" ||
     courseName == "php" ||
     courseName == "database"
   ) {
-    return `https://tsabudh.github.io/internship/${courseName}-course/session-${
+    return `https://tsabudh.github.io/Internship-Refactor/${courseName}-course/session-${
       assignmentNumber + 1
     }/`;
   } else if (courseName == "final" && assignmentNumber == 0) {
-    return `https://tsabudh.github.io/internship/planning-poker/`;
+    return `https://tsabudh.github.io/Internship-Refactor/planning-poker/`;
   } else if (courseName == "final" && assignmentNumber == 1) {
-    return `https://tsabudh.github.io/internship/planning-poker-server/`;
+    return `https://tsabudh.github.io/Internship-Refactor/planning-poker-server/`;
   } else {
-    return `https://tsabudh.github.io/internship/${courseName}-course/${courseName}-assignment-${makeIndexOf(
+    return `https://tsabudh.github.io/Internship-Refactor/${courseName}-course/${courseName}-assignment-${makeIndexOf(
       assignmentNumber
     )}/`;
   }
@@ -279,7 +279,7 @@ const assignmentItemDetails = document.getElementsByClassName(
 )[0];
 createChildOf(assignmentItemDetails, {
   tagName: "iframe",
-  src: "https://tsabudh.github.io/internship/html-course/html-assignment-01/",
+  src: "https://tsabudh.github.io/Internship-Refactor/html-course/html-assignment-01/",
   id: "details-iframe",
 });
 
