@@ -1,0 +1,4 @@
+node_modules/
+*prototype*
+.vscode
+/php-course/dashboard

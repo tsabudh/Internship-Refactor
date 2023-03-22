@@ -1,0 +1,33 @@
+.table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .table tr:hover {background-color: #ddd;}
+  
+  .table td input,.table td select{
+    width: 70%;
+  }
+  
+  table#repeatable-fieldset-one td{
+      padding: 7px;
+  }
+  
+  table#repeatable-fieldset-one label{
+      display: block;
+      margin-bottom: 8px;
+  }
+  
+  table#repeatable-fieldset-one tr>td:last-child{
+      display: inline-block;
+      margin-top: 25px;
+  }
+  

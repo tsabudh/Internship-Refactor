@@ -1,0 +1,55 @@
+body {
+    height: 100vh;
+    position: relative;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.tab{
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem;
+    gap:2rem;
+}
+.active-tab{
+    flex-grow:1;
+    background: #ba8ed8;
+    transition: width 1s ease;
+
+
+}
+.tab-item, .stopwatch_button{
+    text-align: center;
+    padding: 1rem;
+    background: #ba8ed8;
+    color: white;
+    font-weight: 200;
+    font-size: 2rem;
+    cursor: pointer;
+    letter-spacing: 0.01rem;
+    transition: width 1s ease;
+}
+.disabled{
+    color:white;
+    background-color: #EAE0DA;
+}
+.clock {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #17D4FE;
+    font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+}
+.buttons{
+    margin-top: 15rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 3rem;
+
+}
+
+

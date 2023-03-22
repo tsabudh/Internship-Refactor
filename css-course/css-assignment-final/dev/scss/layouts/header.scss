@@ -1,0 +1,82 @@
+.header {
+  padding: 2.4rem;
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & .wrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .logo {
+    aspect-ratio: 2.19;
+    margin-left: 3.6rem;
+    max-width: 27.162rem;
+    min-width: 15.33rem;
+  }
+  .sidenav {
+    display: flex;
+    align-items: center;
+    & li {
+      padding: 2rem;
+      font-weight: 600;
+      @include media-breakpoint-up(xl) {
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+  .nav-toggle-icon {
+    display: inline-block;
+    cursor: pointer;
+  }
+  .join-us-now {
+    @include media-breakpoint-up(xl) {
+      position: absolute;
+    }
+  }
+}
+
+.header--side {
+  padding: 0;
+  background: $color-blue-shade-green;
+  z-index: 10;
+  color: white;
+  position: fixed;
+  left: -100%;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  transition: left 0.75s ease;
+ 
+
+  & .nav-bar {
+    height: 100vh;
+    justify-content: flex-start;
+    overflow-y: hidden
+  }  
+  & .sidenav {
+    padding-left: 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    flex-direction: column;
+    // overflow-y: scroll;
+    height: 100%;
+  }
+  & .wrapper {
+    width: 100%;
+    align-self: flex-start;
+    padding: 3.6rem 2.4rem;
+    border: 1px solid $color-pink-rose;
+  }
+
+  &.offcanvas-visible {
+    height: fit-content;
+    width: 100%;
+    left: 0;
+  }
+
+}
