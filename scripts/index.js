@@ -176,6 +176,7 @@ for (let i = 0; i < courseItems.length; i++) {
       tagName: "div",
       classes: `assignment-item assignment-item--${courseItems[i]}`,
       onclick: `openAssignmentDetails('${courseItems[i]}',${j})`,
+      title: "Click to Preview",
     });
 
     let assignmentItem = document.getElementsByClassName(
@@ -272,14 +273,14 @@ const detailsTab = document.getElementsByClassName("details-tab")[0];
 createChildOf(detailsTab, {
   tagName: "div",
   classes: "assignment-item-details",
-  id: "details",
+  id: "details-content",
 });
 const assignmentItemDetails = document.getElementsByClassName(
   "assignment-item-details"
 )[0];
 createChildOf(assignmentItemDetails, {
   tagName: "iframe",
-  src: "https://tsabudh.github.io/Internship-Refactor/html-course/html-assignment-01/",
+  src: "",
   id: "details-iframe",
 });
 
@@ -305,7 +306,7 @@ function createSiblingAfter(e, passedObject) {
 }
 
 function createChildOf(e, passedObject) {
-  const { tagName, classes, onclick, text, id, href, target, src, alt } =
+  const { tagName, classes, onclick, text, id, href, target, src, alt, title } =
     passedObject;
 
   let newElement = document.createElement(tagName);
@@ -318,6 +319,7 @@ function createChildOf(e, passedObject) {
   if (target) newElement.setAttribute("target", target);
   if (src) newElement.setAttribute("src", src);
   if (alt) newElement.setAttribute("alt", alt);
+  if (title) newElement.setAttribute("title", title);
 
   e.appendChild(newElement);
   if (text) {
@@ -329,43 +331,49 @@ function createChildOf(e, passedObject) {
 function openAssignment(element, assignmentId) {
   let courseItemDivArray = document.getElementsByClassName("course-item");
 
-  let i, tabcontent, tablinks, neededContent;
+  let i, tabContent, neededContent;
+  let assignmentDetailsFrame = document.getElementsByClassName(
+    "assignment-item-details"
+  );
+  for (i = 0; i < assignmentDetailsFrame.length; i++) {
+    assignmentDetailsFrame[i].classList.remove("active");
+  }
+  console.log("removed");
+
   for (i = 0; i < courseItemDivArray.length; i++) {
     courseItemDivArray[i].className = courseItemDivArray[i].className.replace(
       " active",
       ""
     );
   }
-
   element.classList.add("active");
 
-  tabcontent = document.getElementsByClassName("assignment-tab-content");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+  tabContent = document.getElementsByClassName("assignment-tab-content");
+  for (i = 0; i < tabContent.length; i++) {
+    tabContent[i].className = tabContent[i].className.replace(" active", "");
   }
 
   neededContent = document.getElementById(assignmentId);
   neededContent.classList.add("active");
-  tablinks = document.getElementsByClassName("course-item");
 }
 
 function openAssignmentDetails(course, assignmentId) {
   console.log(course, assignmentId);
-  let demoLink = demoRoute(course, assignmentId-1);
+  let demoLink = demoRoute(course, assignmentId - 1);
   console.log(demoLink);
   let frame = document.getElementById("details-iframe");
   frame.setAttribute("src", demoLink);
 
-  let i, tabcontent, tablinks, neededContent;
+  let i, tabContent, tabLinks, neededContent;
   // debugger;
 
-  // tabcontent = document.getElementsByClassName("assignment-item-details");
-  // for (i = 0; i < tabcontent.length; i++) {
-  //   tabcontent[i].className = tabcontent[i].className.replace(" active", "");
-  // }
-  // neededContent = document.getElementById(assignmentDetailsId);
-  // neededContent.classList.add("active");
-  // tablinks = document.getElementsByClassName("course-item");
+  tabContent = document.getElementsByClassName("assignment-item-details");
+  for (i = 0; i < tabContent.length; i++) {
+    tabContent[i].classList.remove("active");
+  }
+  neededContent = document.getElementById("details-content");
+  neededContent.classList.add("active");
+  // tabLinks = document.getElementsByClassName("course-item");
 }
 
 function toggleProfile() {
