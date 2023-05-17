@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 html {
   font-size: 10px;
 }
@@ -7,29 +11,29 @@ body {
 
 .carousel-container {
   width: 80vw;
-  height: 30rem;
+  height: 50rem;
   width: fit-content;
   border: 9px solid brown;
   margin: 0 auto;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .carousel-image-wrapper {
-  width: 400px;
+  width: 800px;
   height: 100%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
   /* white-space: nowrap; */
-  border: 2px solid orangered;
+  /* border: 2px solid orangered; */
 
   transition: all 0.5s ease;
 }
 
 img {
   flex-shrink: 0;
-  width: 400px;
+  width: 800px;
   /* width: 100%; */
   /* height: 100%; */
   object-fit: cover;
@@ -52,10 +56,22 @@ img {
   color: orangered;
 }
 .nav-button {
-  padding: 2rem;
-  background-color: brown;
+  /* padding: 2rem; */
+  /* background-color: rgb(37, 231, 245); */
   max-width: 37.8rem;
   margin: 0 auto;
   text-align: center;
   cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 3rem;
+  border-radius: 50%;
+  filter:invert(200%) drop-shadow(1px 1px 4px #400b63);;
+}
+.nav-button.next {
+  right: 1rem;
+}
+.nav-button.prev {
+  left: 1rem;
 }

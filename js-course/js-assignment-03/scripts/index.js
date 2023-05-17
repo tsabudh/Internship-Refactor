@@ -32,7 +32,7 @@ let indicatorsEl = createChildOf(carouselContainer, {
   classes: "indicators",
 });
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 4; i++) {
   createChildOf(indicatorsEl, {
     tagName: "div",
     classes: "indicator",
@@ -40,16 +40,19 @@ for (let i = 0; i < 3; i++) {
   });
 }
 
-let nextButton = createSiblingAfter(carouselContainer, {
-  tagName: "div",
-  classes: "nav-button",
+let nextButton = createChildOf(carouselContainer, {
+  tagName: "img",
+  classes: "nav-button next",
+  src: "./images/next.png",
   text: "NEXT",
 });
-let prevButton = createSiblingAfter(nextButton, {
-  tagName: "div",
-  classes: "nav-button",
+let prevButton = createChildOf(carouselContainer, {
+  tagName: "img",
+  classes: "nav-button prev",
+  src: "./images/prev.png",
   text: "PREV",
 });
+
 
 //* SCRIPTS FOR CAROUSEL STARTS HERE **
 let currentImageIndex = 0;
@@ -88,13 +91,13 @@ function translateImageWrapper() {
 
 function translateImageWrapperLeft() {
   if (direction === 1) {
-    imageWrapper.appendChild(imageWrapper.firstElementChild);
+    imageWrapper.prepend(imageWrapper.lastElementChild);
     direction = -1;
   }
   direction = -1;
  
   imageWrapper.style.justifyContent = "flex-start";
-  imageWrapper.style.transform = "translateX(-400px)";
+  imageWrapper.style.transform = "translateX(-800px)";
 }
 
 function translateImageWrapperRight() {
@@ -106,7 +109,7 @@ function translateImageWrapperRight() {
   }
  
   imageWrapper.style.justifyContent = "flex-end";
-  imageWrapper.style.transform = "translateX(400px)";
+  imageWrapper.style.transform = "translateX(800px)";
 }
 
 const slider = function () {
