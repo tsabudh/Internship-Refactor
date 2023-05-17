@@ -70,7 +70,6 @@ function translateImageWrapper() {
     "translateX(-" +
     calcWidthOf(currentImage) * Math.abs(currentImageIndex) +
     "px)";
-  imageWrapper.appendChild(imageWrapper.firstElementChild);
 }
 
 
@@ -127,40 +126,7 @@ const slider = function () {
 };
 imageWrapper.addEventListener("transitionend", slider);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function to add 'active-indicator' class to CURRENTIMAGEINDEX/ current indicator
+// function to add 'active-indicator' class to current indicator
 function highlightCurrentIndicator() {
   indicatorArray.forEach((indicator) =>
     indicator.classList.remove("active-indicator")
@@ -168,13 +134,7 @@ function highlightCurrentIndicator() {
   indicatorArray[currentImageIndex].classList.add("active-indicator");
 }
 
-
-
-
-
-
-
-// adding translations on indicator click
+//* adding translations on indicator click
 for (let i = 0; i < indicatorArray.length; i++) {
   indicatorArray[i].addEventListener("click", () => {
     currentImageIndex = i;
