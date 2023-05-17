@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -50,10 +50,11 @@ img {
   color: white;
   position: absolute;
   bottom: 0;
-  filter: drop-shadow(0 0 0.75rem crimson);
 }
 .active-indicator {
-  color: orangered;
+  /* color: radial-gradient(#3f87a6, #ebf8e1, #f69d3c); */
+  color: red;
+  filter: drop-shadow(0 0 0.2rem rgb(20, 252, 240));
 }
 .nav-button {
   /* padding: 2rem; */
@@ -67,7 +68,7 @@ img {
   transform: translate(0, -50%);
   width: 3rem;
   border-radius: 50%;
-  filter:invert(200%) drop-shadow(1px 1px 4px #400b63);;
+  filter: invert(200%) drop-shadow(1px 1px 4px #400b63);
 }
 .nav-button.next {
   right: 1rem;
