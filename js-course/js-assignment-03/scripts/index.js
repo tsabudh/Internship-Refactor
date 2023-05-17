@@ -9,11 +9,16 @@ const imageWrapper = document.getElementsByClassName(
 let imageCollection = imageWrapper.getElementsByTagName("img");
 let numberOfImages = imageCollection.length;
 let imageArray = Array.from(imageCollection);
+let direction=-1;
+
+
+let imageReel = imageWrapper.getElementsByTagName("img");
+
+// console.log(imageReel);
 
 imageArray.map((item) => {
   let cssStyleObj = window.getComputedStyle(item);
   let imgWidth = cssStyleObj.getPropertyValue("width");
-
 });
 
 //* FUNCTION TO GET COMPUTED WIDTH OF AN ELEMENT
@@ -49,6 +54,7 @@ let prevButton = createSiblingAfter(nextButton, {
 //* SCRIPTS FOR CAROUSEL STARTS HERE **
 let currentImageIndex = 0;
 let currentImage = imageArray[Math.abs(currentImageIndex)];
+console.log(currentImage);
 //numberOFImages = 3 so index= 0, 1, 2
 let indicatorCollection = document.getElementsByClassName("indicator");
 let indicatorArray = Array.from(indicatorCollection);
@@ -61,7 +67,95 @@ function translateImageWrapper() {
     "translateX(-" +
     calcWidthOf(currentImage) * Math.abs(currentImageIndex) +
     "px)";
+  imageWrapper.appendChild(imageWrapper.firstElementChild);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function translateImageWrapperLeft() {
+  if (direction === 1) {
+    imageWrapper.appendChild(imageWrapper.firstElementChild);
+    direction = -1;
+  }
+  direction = -1;
+ 
+  imageWrapper.style.justifyContent = "flex-start";
+  imageWrapper.style.transform = "translateX(-400px)";
+}
+
+function translateImageWrapperRight() {
+  if (direction === -1) {
+    // imageWrapper.prepend(imageWrapper.lastElementChild);
+    imageWrapper.appendChild(imageWrapper.firstElementChild);
+
+    direction = 1;
+  }
+ 
+  imageWrapper.style.justifyContent = "flex-end";
+  imageWrapper.style.transform = "translateX(400px)";
+}
+
+const slider = function () {
+  if (direction === -1) {
+    imageWrapper.appendChild(imageWrapper.firstElementChild);
+  } else if (direction === 1) {
+    imageWrapper.prepend(imageWrapper.lastElementChild);
+  }
+  imageWrapper.style.transition = "none";
+
+  imageWrapper.style.transform = "translateX(0)";
+  setTimeout(function () {
+    imageWrapper.style.transition = "all ease 0.5s";
+  });
+};
+imageWrapper.addEventListener("transitionend", slider);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function to add 'active-indicator' class to CURRENTIMAGEINDEX/ current indicator
 function highlightCurrentIndicator() {
@@ -70,6 +164,12 @@ function highlightCurrentIndicator() {
   );
   indicatorArray[currentImageIndex].classList.add("active-indicator");
 }
+
+
+
+
+
+
 
 // adding translations on indicator click
 for (let i = 0; i < indicatorArray.length; i++) {
@@ -88,16 +188,14 @@ nextButton.addEventListener("click", () => {
   // first change the currentImageIndex to next index
   currentImageIndex++;
 
-  // if increased currentImageIndex becomes greater
-  // than possible image index [0 to numberofImages-1],
-  // change currentImageIndex to 0 by calculating modulus
   if (currentImageIndex >= numberOfImages)
     currentImageIndex = currentImageIndex % numberOfImages;
 
   highlightCurrentIndicator();
 
   // offset X coordinate with respect to currentImageIndex
-  translateImageWrapper();
+  // translateImageWrapper();
+  translateImageWrapperLeft();
 });
 
 //* PREV BUTTON EVENT
@@ -111,10 +209,7 @@ prevButton.addEventListener("click", () => {
   highlightCurrentIndicator();
 
   // offset X coordinate with respect to currentImageIndex
-  imageWrapper.style.transform =
-    "translateX(-" +
-    calcWidthOf(currentImage) * Math.abs(currentImageIndex) +
-    "px)";
+  translateImageWrapperRight();
 });
 
 //* FUNCTIONS TO CREATE SIBLINGS
